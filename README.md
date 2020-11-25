@@ -40,7 +40,7 @@ You may choose to pass along extra variables to your Blade logic:
 ```
 
 ## Caveat
-There is one big caveat tho: Blade variables. As the syntax for rendering Blade variables is the same as Twig's, this conflicts.
+There is one big caveat though: Blade variables. As the syntax for rendering Blade variables is the same as Twig's, this conflicts.
 You may use the 'verbatim' class to work around this:
 
 ```twig

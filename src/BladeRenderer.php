@@ -9,11 +9,12 @@ class BladeRenderer
 {
     public function render(string $contents, array $context = []): string
     {
-        $tempFile = tempnam($this->tempDirectory(), 'twig-blade-loader') . '.blade.php';
+        $fileHash = md5($contents);
+        $tempFile = sprintf("%s/%s.blade.php", $this->tempDirectory(), $fileHash);
 
         file_put_contents($tempFile, $contents);
 
-        return view(Str::before(basename($tempFile), '.blade.php'), $context)->render();
+        return view(Str::before($fileHash, '.blade.php'), $context)->render();
     }
 
     private function tempDirectory(): string

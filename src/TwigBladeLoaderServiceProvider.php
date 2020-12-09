@@ -8,7 +8,7 @@ class TwigBladeLoaderServiceProvider extends ServiceProvider
 {
     public function register()
     {
-         $this->app->afterResolving('twig', fn () => $this->app['twig']->addExtension(new TwigBladeLoaderExtension()));
+        $this->app->afterResolving('twig', fn () => $this->app['twig']->addExtension(new TwigBladeLoaderExtension()));
     }
 
     public function boot()

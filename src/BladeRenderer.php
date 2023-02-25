@@ -10,7 +10,7 @@ class BladeRenderer
     public function render(string $contents, array $context = []): string
     {
         $fileHash = md5($contents);
-        $tempFile = sprintf("%s/%s.blade.php", $this->tempDirectory(), $fileHash);
+        $tempFile = sprintf('%s/%s.blade.php', $this->tempDirectory(), $fileHash);
 
         file_put_contents($tempFile, $contents);
 

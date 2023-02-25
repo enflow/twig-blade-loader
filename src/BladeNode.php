@@ -26,7 +26,7 @@ class BladeNode extends Node
             ->subcompile($this->getNode('body'))
             ->raw('echo ')
             ->raw('app(\Enflow\TwigBladeLoader\BladeRenderer::class)->render(')
-            ->raw("ob_get_clean()")
+            ->raw('ob_get_clean()')
             ->raw(',');
 
         $this->addVariables($compiler);

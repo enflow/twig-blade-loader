@@ -10,14 +10,14 @@ class RenderTest extends TestCase
             'name' => 'From Global Scope',
         ])->render();
 
-        $this->assertEquals('From Global Scope' . "\n", $rendered);
+        $this->assertEquals('From Global Scope'."\n", $rendered);
     }
 
     public function test_it_passed_along_variables_from_with_statement()
     {
         $rendered = view('with-variables')->render();
 
-        $this->assertEquals('variable-1' . "\n", $rendered);
+        $this->assertEquals('variable-1'."\n", $rendered);
     }
 
     public function test_it_works_with_verbatim()

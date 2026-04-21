@@ -4,13 +4,14 @@ namespace Enflow\TwigBladeLoader\Test;
 
 use Enflow\TwigBladeLoader\TwigBladeLoaderServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use TwigBridge\ServiceProvider;
 
 class TestCase extends BaseTestCase
 {
     protected function getPackageProviders($app): array
     {
         return [
-            \TwigBridge\ServiceProvider::class,
+            ServiceProvider::class,
             TwigBladeLoaderServiceProvider::class,
         ];
     }

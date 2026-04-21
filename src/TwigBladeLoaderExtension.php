@@ -9,7 +9,7 @@ class TwigBladeLoaderExtension extends AbstractExtension
     public function getTokenParsers()
     {
         return [
-            new BladeTokenParser(),
+            new BladeTokenParser,
         ];
     }
 }

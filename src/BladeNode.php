@@ -8,10 +8,10 @@ use Twig\Node\Node;
 
 class BladeNode extends Node
 {
-    public function __construct(Node $body, ?AbstractExpression $variables, int $lineno, string $tag = null)
+    public function __construct(Node $body, ?AbstractExpression $variables, int $lineno, ?string $tag = null)
     {
         $nodes = ['body' => $body];
-        if (null !== $variables) {
+        if ($variables !== null) {
             $nodes['variables'] = $variables;
         }
 

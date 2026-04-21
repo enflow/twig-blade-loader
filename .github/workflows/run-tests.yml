@@ -11,20 +11,20 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [ 8.4, 8.3 ]
-        laravel: [ ^12.0, ^11.0 ]
+        php: [8.5, 8.4]
+        laravel: [^13.0, ^12.0]
         stability: [prefer-lowest, prefer-stable]
         include:
+          - laravel: ^13.0
+            testbench: ^11.0
           - laravel: ^12.0
             testbench: ^10.0
-          - laravel: ^11.0
-            testbench: ^9.0
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -32,11 +32,6 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
           coverage: none
-
-      - name: Setup problem matchers
-        run: |
-          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
-          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
         run: |
